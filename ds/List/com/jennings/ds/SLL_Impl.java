@@ -28,10 +28,36 @@ public class SLL_Impl {
 		} else {
 			MyNode current = head;
 			while (null != current.getNext()) {
+				if(null != current.getNext().getNext()) {
+					current = current.getNext().getNext();
+				} else {
+					current = current.getNext();
+				}
+			}
+							
+			current.setNext(n);
+		}
+	}
+	
+	public void addToTail_Slow(int i) {
+		MyNode n = new MyNode(i, null);
+		if (null == head) {
+			head = n;
+		} else {
+			MyNode current = head;
+			while (null != current.getNext()) {
 				current = current.getNext();
 			}
 			current.setNext(n);
 		}
+	}
+	
+	public void removeDuplicatesUsingSet() {
+		
+	}
+	
+	public void removeDuplicates() {
+		
 	}
 	
 	public int length() {

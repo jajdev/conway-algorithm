@@ -8,6 +8,7 @@ public class SLL_Test {
 
 	public static void main(String[] args) {
 		//testSimpleList();
+		testRemoveDuplicates();
 		testAddFunctions();
 	}
 	
@@ -30,10 +31,21 @@ public class SLL_Test {
 		list1.print();
 		list2.print();
 	}
+
+	public static void testRemoveDuplicates() {
+		SLL_Impl list1 = new SLL_Impl();
+		String tester = "JAVA COFFEE CODING POWER";
+		for(int i = 0; i <= tester.length() - 1; i ++) {
+			list1.addToTail(tester.charAt(i));
+		}
+		list1.print();
+		list1.removeDuplicates();
+		list1.print();
+	}	
 	
 	public static void testAddFunctions() {
 		SLL_Impl list1 = new SLL_Impl();
-		int max = 50000;
+		int max = 20000;
 			
 		//Add 5 elements to front of the list 
 		startTimer();
@@ -42,7 +54,7 @@ public class SLL_Test {
 		}
 		stopTimer();
 		
-		System.out.print("Add to Head of List - ");
+		System.out.print("Test1: Add to Head of List - ");
 		printTimer();
 		
 		//Add 5 elements to back of the list 
@@ -52,7 +64,16 @@ public class SLL_Test {
 		}
 		stopTimer();
 		
-		System.out.print("Add to Tail of List - ");
+		System.out.print("Test2: Add to Tail of List (Optimized) - ");
+		printTimer();
+		
+		//Add 5 elements to back of the list 
+		startTimer();
+		for(int i = 1; i <= max; i++) {
+			list1.addToTail_Slow(i);
+		}
+		stopTimer();		
+		System.out.print("Test3: Add to Tail of List - ");
 		printTimer();
 	}
 	
