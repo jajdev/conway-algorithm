@@ -13,8 +13,21 @@ public class SLL_Impl {
 	}
 	
 	public void add(int i) {
+		addToHead(i);
+	}
+	
+	protected void addToHead(int i) {
 		MyNode n = new MyNode(i, head);
 		head = n;
+	}
+	
+	protected void addToTail(int i) {
+		MyNode n = new MyNode(i, null);
+		MyNode current = head;
+		while (null != current.getNext()) {
+			current = current.getNext();
+		}
+		current.setNext(n);
 	}
 	
 	public int length() {
@@ -43,8 +56,10 @@ class MyNode {
 	public MyNode getNext() {
 		return next;
 	}
-	
 	public Integer getData() {
 		return data;
+	}
+	public void setNext(MyNode n) {
+		next = n;
 	}
 }
