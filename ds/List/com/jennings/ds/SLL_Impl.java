@@ -16,18 +16,22 @@ public class SLL_Impl {
 		addToHead(i);
 	}
 	
-	protected void addToHead(int i) {
+	public void addToHead(int i) {
 		MyNode n = new MyNode(i, head);
 		head = n;
 	}
 	
-	protected void addToTail(int i) {
+	public void addToTail(int i) {
 		MyNode n = new MyNode(i, null);
-		MyNode current = head;
-		while (null != current.getNext()) {
-			current = current.getNext();
+		if (null == head) {
+			head = n;
+		} else {
+			MyNode current = head;
+			while (null != current.getNext()) {
+				current = current.getNext();
+			}
+			current.setNext(n);
 		}
-		current.setNext(n);
 	}
 	
 	public int length() {
