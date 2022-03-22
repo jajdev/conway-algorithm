@@ -9,8 +9,9 @@ public class SLL_Test {
 	public static void main(String[] args) {
 		//testNewList();
 		//testRemoveNode();
-		testRemoveDuplicates();
+		//testRemoveDuplicates();
 		//testAddFunctions();
+		testFindKthToLastElement();
 	}
 	
 	public static void testNewList() {
@@ -95,6 +96,23 @@ public class SLL_Test {
 		}
 		stopTimer();		
 		printTimer("Test3: Add to Tail of List - ");
+	}
+	
+	public static void testFindKthToLastElement() {
+		SLL_Impl list = createList(10);
+		list.print();
+		System.out.println("5th to last element = " + list.findKthToLastElement(5));
+		System.out.println("Last to last element = " + list.findKthToLastElement(0));
+		System.out.println("1st to last element = " + list.findKthToLastElement(1));
+		System.out.println("11th to last element = " + list.findKthToLastElement(11));
+	}
+	
+	public static SLL_Impl createList(int max) {
+		SLL_Impl list = new SLL_Impl();
+		for(int i = 1; i <= max; i++) {
+			list.addToHead(i);
+		}
+		return list;
 	}
 	
 	public static void startTimer() {

@@ -105,14 +105,21 @@ public class SLL_Impl {
 		}
 	}
 	
-//	public MyNode findKthToLastElement(int k) {
-//		int indexToFind = length() - 1 - k;
-//		MyNode current = head;
-//
-//		while (null != current && indexToFind > 0 ) {
-//			current =
-//		}
-//	}
+	public Integer findKthToLastElement(int k) {
+		// Note: If length is not internally stored, loop through the list one time to find it 
+		int indexToFind = length() - 1 - k; 
+		MyNode current = head;
+
+		while (null != current && indexToFind > 0 ) {
+			current = current.getNext();
+			indexToFind--;
+		}
+		if (null != current && indexToFind == 0) {
+			return current.getData();
+		} else {
+			return null;
+		}
+	}
 	
 	public int length() {
 		return length;
