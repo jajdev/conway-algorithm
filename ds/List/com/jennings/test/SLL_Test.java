@@ -7,20 +7,15 @@ public class SLL_Test {
 	private static long timer;
 
 	public static void main(String[] args) {
-		//testSimpleList();
+		//testNewList();
+		//testRemoveNode();
 		testRemoveDuplicates();
-		testAddFunctions();
+		//testAddFunctions();
 	}
 	
-	public static void testSimpleList() {
+	public static void testNewList() {
 		SLL_Impl list1 = new SLL_Impl();
 		SLL_Impl list2 = new SLL_Impl();
-		
-		//Create SLL with 5 elements
-//		for(int i = 1; i <= 5; i++) {
-//			list1.add(i);
-//		}
-//		list1.print();
 		
 		list1 = new SLL_Impl();
 		//Create SLL with 5 elements, printing each element after adding it
@@ -31,16 +26,46 @@ public class SLL_Test {
 		list1.print();
 		list2.print();
 	}
+	
+	public static void testRemoveNode() {
+		//Create and add SLL with 5 elements
+		SLL_Impl list1 = new SLL_Impl();
+		for(int i = 1; i <= 5; i++) {
+			list1.add(i);
+		}
+		list1.print();
+		list1.remove(5);
+		list1.print();
+		list1.remove(3);
+		list1.print();
+	}
 
 	public static void testRemoveDuplicates() {
 		SLL_Impl list1 = new SLL_Impl();
-		String tester = "JAVA COFFEE CODING POWER";
-		for(int i = 0; i <= tester.length() - 1; i ++) {
-			list1.addToTail(tester.charAt(i));
+		SLL_Impl list2 = new SLL_Impl();
+		int max = 20000;
+//		String tester = "JAVA COFFEE CODING POWER";
+//		for(int i = 0; i <= tester.length() - 1; i ++) {
+//			list1.addToTail(tester.charAt(i));
+//			list2.addToTail(tester.charAt(i));
+//		}
+		for(int i = 0; i <= max; i ++) {
+			list1.addToTail(i % 5000);
+			list2.addToTail(i % 5000);
 		}
-		list1.print();
+		//list1.print();
+		startTimer();
 		list1.removeDuplicates();
-		list1.print();
+		stopTimer();
+//		list1.print();
+		printTimer("Test1: Remove Duplicates - ");
+
+//		list2.print();
+		startTimer();
+		list2.removeDuplicates();
+		stopTimer();
+//		list2.print();
+		printTimer("Test2: Remove Duplicates without Temp Buffer - ");
 	}	
 	
 	public static void testAddFunctions() {
@@ -52,10 +77,8 @@ public class SLL_Test {
 		for(int i = 1; i <= max; i++) {
 			list1.addToHead(i);
 		}
-		stopTimer();
-		
-		System.out.print("Test1: Add to Head of List - ");
-		printTimer();
+		stopTimer();		
+		printTimer("Test1: Add to Head of List - ");
 		
 		//Add 5 elements to back of the list 
 		startTimer();
@@ -63,9 +86,7 @@ public class SLL_Test {
 			list1.addToTail(i);
 		}
 		stopTimer();
-		
-		System.out.print("Test2: Add to Tail of List (Optimized) - ");
-		printTimer();
+		printTimer("Test2: Add to Tail of List (Optimized) - ");
 		
 		//Add 5 elements to back of the list 
 		startTimer();
@@ -73,8 +94,7 @@ public class SLL_Test {
 			list1.addToTail_Slow(i);
 		}
 		stopTimer();		
-		System.out.print("Test3: Add to Tail of List - ");
-		printTimer();
+		printTimer("Test3: Add to Tail of List - ");
 	}
 	
 	public static void startTimer() {
@@ -87,7 +107,7 @@ public class SLL_Test {
 		stopwatch = 0;
 	}
 	
-	public static void printTimer() {
-		System.out.println("Elasped Time in milliseconds: " + timer);
+	public static void printTimer(String msg) {
+		System.out.println(msg + "Elasped Time in milliseconds: " + timer);
 	}
 }
