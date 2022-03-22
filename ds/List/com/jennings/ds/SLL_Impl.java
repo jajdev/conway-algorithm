@@ -128,6 +128,27 @@ public class SLL_Impl {
 		nodeToRemove.setNext(nodeToRemove.getNext().getNext());
 	}
 	
+	// Method will partition list such that all nodes less than x come before all nodes g.t.o.e.t. x
+	public void partitionList(int x) {
+		SLL_Impl lessThanList = new SLL_Impl();
+		SLL_Impl greaterThanList = new SLL_Impl();
+		
+		MyNode current = head;
+		
+		while (null != current) {
+			int data = current.getData();
+			if (data < x) {
+				lessThanList.addToHead(data);
+			} else {
+				greaterThanList.addToHead(data);
+			}
+			current = current.getNext();
+		}
+		current = lessThanList.getNode(lessThanList.length - 1);
+		current.setNext(greaterThanList.getNode(0));
+		head = lessThanList.head;
+	}
+	
 	public Integer get(int index) {
 		MyNode ret = getNode(index);
 		return null != ret ? ret.getData() : null;

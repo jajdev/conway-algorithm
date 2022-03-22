@@ -12,7 +12,8 @@ public class SLL_Test {
 		//testRemoveDuplicates();
 		//testAddFunctions();
 		//testFindKthToLastElement();
-		testRemoveMiddleNodeFromList();
+		//testRemoveMiddleNodeFromList();
+		testPartitionList();
 	}
 	
 	public static void testNewList() {
@@ -114,6 +115,22 @@ public class SLL_Test {
 		list.removeMiddleNodeFromList();
 		list.print();
 		list.removeMiddleNodeFromList();
+		list.print();
+	}
+	
+	public static void testPartitionList() {
+		SLL_Impl list = createList(10);
+		list.print();
+		list.partitionList(7);
+		list.print();
+		
+		for(int i = 0; i <= 25; i ++) {
+			list.addToTail(i % 12);
+		}
+		list.print();
+		list.partitionList(3);
+		list.print();
+		list.partitionList(5);
 		list.print();
 	}
 	
