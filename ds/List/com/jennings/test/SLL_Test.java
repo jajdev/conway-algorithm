@@ -11,7 +11,8 @@ public class SLL_Test {
 		//testRemoveNode();
 		//testRemoveDuplicates();
 		//testAddFunctions();
-		testFindKthToLastElement();
+		//testFindKthToLastElement();
+		testRemoveMiddleNodeFromList();
 	}
 	
 	public static void testNewList() {
@@ -105,6 +106,15 @@ public class SLL_Test {
 		System.out.println("Last to last element = " + list.findKthToLastElement(0));
 		System.out.println("1st to last element = " + list.findKthToLastElement(1));
 		System.out.println("11th to last element = " + list.findKthToLastElement(11));
+	}
+	
+	public static void testRemoveMiddleNodeFromList() {
+		SLL_Impl list = createList(10);
+		list.print();
+		list.removeMiddleNodeFromList();
+		list.print();
+		list.removeMiddleNodeFromList();
+		list.print();
 	}
 	
 	public static SLL_Impl createList(int max) {

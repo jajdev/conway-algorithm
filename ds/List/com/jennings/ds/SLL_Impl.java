@@ -121,6 +121,31 @@ public class SLL_Impl {
 		}
 	}
 	
+	public void removeMiddleNodeFromList() {
+		int middle = length / 2;
+		MyNode nodeToRemove = getNode(middle);
+		nodeToRemove.setData(nodeToRemove.getNext().getData());
+		nodeToRemove.setNext(nodeToRemove.getNext().getNext());
+	}
+	
+	public Integer get(int index) {
+		MyNode ret = getNode(index);
+		return null != ret ? ret.getData() : null;
+				
+	}
+	
+	private MyNode getNode(int index) {
+		MyNode current = head;
+		if (index >= length || index < 0) {
+			return null;
+		}
+		while (null != current && index > 0) {
+			current = current.getNext();
+			index--;
+		}
+		return current;
+	}
+	
 	public int length() {
 		return length;
 	}
@@ -147,10 +172,13 @@ class MyNode {
 	public MyNode getNext() {
 		return next;
 	}
+	public void setNext(MyNode n) {
+		next = n;
+	}
 	public Integer getData() {
 		return data;
 	}
-	public void setNext(MyNode n) {
-		next = n;
+	public void setData(Integer i) {
+		data = i;
 	}
 }
