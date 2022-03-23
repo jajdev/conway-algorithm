@@ -149,6 +149,30 @@ public class SLL_Impl {
 		head = lessThanList.head;
 	}
 	
+	public SLL_Impl addTwoLists(SLL_Impl adder) {
+		int value1 = parseValueFromList();
+		int value2 = adder.parseValueFromList();
+		SLL_Impl sum = new SLL_Impl();
+		String total = ((Integer)(value1 + value2)).toString();
+		for (int i = 0; i < total.length(); i++) {
+			sum.addToHead(Integer.valueOf(total.substring(i, i+1)));
+		}
+		
+		return sum;
+	}
+	
+	private int parseValueFromList() {
+		MyNode current = head;
+		int multiplier = 1;
+		int sum = 0;
+		while (null != current) {
+			sum += current.getData() * multiplier;
+			multiplier *= 10;
+			current = current.getNext();
+		}
+		return sum;
+	}
+	
 	public Integer get(int index) {
 		MyNode ret = getNode(index);
 		return null != ret ? ret.getData() : null;

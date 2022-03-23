@@ -13,7 +13,8 @@ public class SLL_Test {
 		//testAddFunctions();
 		//testFindKthToLastElement();
 		//testRemoveMiddleNodeFromList();
-		testPartitionList();
+		//testPartitionList();
+		testAddTwoLists();
 	}
 	
 	public static void testNewList() {
@@ -132,6 +133,21 @@ public class SLL_Test {
 		list.print();
 		list.partitionList(5);
 		list.print();
+	}
+	
+	public static void testAddTwoLists() {
+		SLL_Impl list1 = new SLL_Impl();
+		list1.addToHead(6);
+		list1.addToHead(1);
+		list1.addToHead(7);
+		SLL_Impl list2 = new SLL_Impl();
+		list2.addToHead(2);
+		list2.addToHead(9);
+		list2.addToHead(5);
+		SLL_Impl total = list1.addTwoLists(list2);
+		list1.print();
+		list2.print();
+		total.print();
 	}
 	
 	public static SLL_Impl createList(int max) {
