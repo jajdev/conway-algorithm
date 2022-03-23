@@ -80,6 +80,7 @@ public class SLL_Impl {
 		return false;
 	}
 	
+	// Space = BigO(2n) && Time = BigO(n)
 	public void removeDuplicates() {
 		MyNode current = head;
 		MyNode previous = null;
@@ -95,6 +96,7 @@ public class SLL_Impl {
 		}
 	}
 	
+	// Space = BigO(1) && Time = BigO(n^2)
 	public void removeDuplicatesWithoutTempBuffer() {
 		MyNode current = head;
 		while (null != current) {
