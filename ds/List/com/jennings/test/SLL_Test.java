@@ -9,12 +9,12 @@ public class SLL_Test {
 	public static void main(String[] args) {
 		//testNewList();
 		//testRemoveNode();
-		//testRemoveDuplicates();
+		testRemoveDuplicates();
 		//testAddFunctions();
 		//testFindKthToLastElement();
 		//testRemoveMiddleNodeFromList();
 		//testPartitionList();
-		testAddTwoLists();
+		//testAddTwoLists();
 	}
 	
 	public static void testNewList() {
@@ -48,27 +48,27 @@ public class SLL_Test {
 		SLL_Impl list1 = new SLL_Impl();
 		SLL_Impl list2 = new SLL_Impl();
 		int max = 20000;
-//		String tester = "JAVA COFFEE CODING POWER";
-//		for(int i = 0; i <= tester.length() - 1; i ++) {
-//			list1.addToTail(tester.charAt(i));
-//			list2.addToTail(tester.charAt(i));
-//		}
-		for(int i = 0; i <= max; i ++) {
-			list1.addToTail(i % 5000);
-			list2.addToTail(i % 5000);
+		String tester = "JAVA COFFEE CODING POWER";
+		for(int i = 0; i <= tester.length() - 1; i ++) {
+			list1.addToTail(tester.charAt(i));
+			list2.addToTail(tester.charAt(i));
 		}
-		//list1.print();
+//		for(int i = 0; i <= max; i ++) {
+//			list1.addToTail(i % 5000);
+//			list2.addToTail(i % 5000);
+//		}
+		list1.print();
 		startTimer();
 		list1.removeDuplicates();
 		stopTimer();
-//		list1.print();
+		list1.print();
 		printTimer("Test1: Remove Duplicates - ");
 
-//		list2.print();
+		list2.print();
 		startTimer();
-		list2.removeDuplicates();
+		list2.removeDuplicatesWithoutTempBuffer();
 		stopTimer();
-//		list2.print();
+		list2.print();
 		printTimer("Test2: Remove Duplicates without Temp Buffer - ");
 	}	
 	

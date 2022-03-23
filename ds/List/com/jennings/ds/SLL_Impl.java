@@ -82,12 +82,14 @@ public class SLL_Impl {
 	
 	public void removeDuplicates() {
 		MyNode current = head;
+		MyNode previous = null;
 		HashSet<Integer> set = new HashSet<>();
 		while (null != current) {
 			if (set.contains(current.getData())) {
-				remove(current.getData());
+				previous.setNext(current.getNext());
 			} else {
 				set.add(current.getData());
+				previous = current;
 			}
 			current = current.getNext();
 		}
@@ -96,12 +98,14 @@ public class SLL_Impl {
 	public void removeDuplicatesWithoutTempBuffer() {
 		MyNode current = head;
 		while (null != current) {
-			MyNode runner = head;
-			while (runner != null) {
-				if(runner.getData() == current.getData() && runner != current) {
-					remove(runner.getData());
+			MyNode runner = current;
+			while (runner.getNext() != null) {
+				if(runner.getNext().getData() == current.getData()) {
+					runner.setNext(runner.getNext().getNext());
 				}
+				runner = runner.getNext();
 			}
+			current = current.getNext();
 		}
 	}
 	
