@@ -9,12 +9,13 @@ public class SLL_Test {
 	public static void main(String[] args) {
 		//testNewList();
 		//testRemoveNode();
-		testRemoveDuplicates();
+		//testRemoveDuplicates();
 		//testAddFunctions();
 		//testFindKthToLastElement();
 		//testRemoveMiddleNodeFromList();
 		//testPartitionList();
 		//testAddTwoLists();
+		testReverse();
 	}
 	
 	public static void testNewList() {
@@ -42,6 +43,13 @@ public class SLL_Test {
 		list1.print();
 		list1.remove(3);
 		list1.print();
+	}
+	
+	public static void testReverse() {
+		SLL_Impl list = createList(10);
+		list.print();
+		list.reverseList();
+		list.print();
 	}
 
 	public static void testRemoveDuplicates() {

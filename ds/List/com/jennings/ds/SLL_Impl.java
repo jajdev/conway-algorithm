@@ -80,7 +80,7 @@ public class SLL_Impl {
 		return false;
 	}
 	
-	// Space = BigO(2n) && Time = BigO(n)
+	// Space = BigO(n) && Time = BigO(n)
 	public void removeDuplicates() {
 		MyNode current = head;
 		MyNode previous = null;
@@ -109,6 +109,19 @@ public class SLL_Impl {
 			}
 			current = current.getNext();
 		}
+	}
+	
+	public void reverseList() {
+		if (null == head) {
+			return;
+		}
+		MyNode old_head = head;
+		MyNode current = head.getNext();
+		while (null != current) {
+			this.addToHead(current.getData());
+			current = current.getNext();
+		}
+		old_head.setNext(null);
 	}
 	
 	public Integer findKthToLastElement(int k) {
@@ -177,6 +190,22 @@ public class SLL_Impl {
 			current = current.getNext();
 		}
 		return sum;
+	}
+	
+	public boolean hasCycle() {
+		if (null == head) {
+			return false;
+		}
+		MyNode fast = head;
+		MyNode slow = head;
+		while(null != fast && null != fast.getNext() && null != slow) {
+			if (fast == slow) {
+				return true;
+			}
+			fast = fast.getNext().getNext();
+			slow = slow.getNext();
+		}
+		return false;
 	}
 	
 	public Integer get(int index) {
