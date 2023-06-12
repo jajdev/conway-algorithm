@@ -32,17 +32,12 @@ public class DayOfWeekFinder {
 	/* Doomsday by Month (Leap Year doomsday in parenthesis)
 	 * 1/3 (1/4) 2/28 (2/29) 3/14 4/4 5/9 6/6 7/11 8/8 9/5 10/10 11/7 12/12
 	*/
-	public int findDoomsdayByMonth(int month, boolean leapYear){
-		int doomsdayDate = 0;
-		if (leapYear && (month == 1 || month == 2)) {
-			doomsdayDate = MONTH_DOOMSDAY[month] + 1;
-		} else {
-			doomsdayDate = MONTH_DOOMSDAY[month];
-		}
-		return doomsdayDate;
+	public int findDoomsdayByMonth(int month, boolean leapYear) {
+		int doomsdayDate = MONTH_DOOMSDAY[month];
+		return leapYear && (month == 1 || month == 2) ? doomsdayDate + 1 : doomsdayDate;
 	}
 	
-	public boolean isLeapYear(int year){
+	public boolean isLeapYear(int year) {
 		if (year % 4 != 0) {
 			return false;
 		} else if (year % 100 != 0) {
