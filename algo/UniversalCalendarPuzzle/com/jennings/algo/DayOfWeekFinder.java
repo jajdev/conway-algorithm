@@ -9,16 +9,17 @@ public class DayOfWeekFinder {
 	static final List<Integer> MONTH_31DAYS = Arrays.asList( 1, 3, 5, 7, 8, 10, 12 );
 	static final List<Integer> MONTH_30DAYS = Arrays.asList( 4, 6, 9, 11 );
 	
-	public void calculateDayOfWeek(int month, int day, int year) {
+	public int calculateDayOfWeek(int month, int day, int year) {
 		if (!isValidDate(month, day, year)) {
 			usage();
-			return;			
+			return -1;			
 		}
 		int result = findAnchorDay(year) + ((year % 100) / 12) + ((year % 100) % 12) + (((year % 100) % 12) / 4);
-		result = (result + day - findDoomsdayByMonth(month, isLeapYear(year))) % 7;		
+		result = (result + day - findDoomsdayByMonth(month, isLeapYear(year))) % 7;
 		printDayOfWeek(month, day, year, result);
+		return result;		
 	}
-
+	
 	/* Anchor Day for each century:
 	 * 1500 		1600 		1700 		1800
 	 * 1900 		2000 		2100 		2200
