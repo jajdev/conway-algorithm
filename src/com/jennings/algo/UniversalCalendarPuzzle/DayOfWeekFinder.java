@@ -1,4 +1,4 @@
-package com.jennings.algo;
+package com.jennings.algo.UniversalCalendarPuzzle;
 
 import java.util.Arrays;
 import java.util.List;
@@ -15,11 +15,10 @@ public class DayOfWeekFinder {
 			return -1;			
 		}
 		int result = findAnchorDay(year) + ((year % 100) / 12) + ((year % 100) % 12) + (((year % 100) % 12) / 4);
-		result = (result + day - findDoomsdayByMonth(month, isLeapYear(year))) % 7;
-		printDayOfWeek(month, day, year, result);
-		return result;		
+		return (result + day - findDoomsdayByMonth(month, isLeapYear(year))) % 7;		
+		//printDayOfWeek(month, day, year, result);
 	}
-	
+
 	/* Anchor Day for each century:
 	 * 1500 		1600 		1700 		1800
 	 * 1900 		2000 		2100 		2200

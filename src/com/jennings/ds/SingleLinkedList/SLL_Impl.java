@@ -1,4 +1,4 @@
-package com.jennings.ds;
+package com.jennings.ds.SingleLinkedList;
 
 import java.util.HashSet;
 
