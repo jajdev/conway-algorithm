@@ -1,13 +1,13 @@
-package com.jennings.test;
+package com.jennings.test.UniversalCalendarPuzzle;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import com.jennings.algo.DayOfWeekFinder;
+import com.jennings.algo.UniversalCalendarPuzzle.DayOfWeekFinder;
 
-public class TestDays {
+public class DayOfWeekFinderTest {
 	
 	private static DayOfWeekFinder algorithm;
 	
