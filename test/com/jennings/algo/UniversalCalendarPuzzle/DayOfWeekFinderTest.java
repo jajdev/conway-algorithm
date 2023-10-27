@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.jennings.algo.UniversalCalendarPuzzle.DayOfWeekFinder;
 
+
 public class DayOfWeekFinderTest {
 	
 	private static DayOfWeekFinder algorithm;
@@ -19,6 +20,7 @@ public class DayOfWeekFinderTest {
 	@Test
 	@DisplayName("Positive Test Cases")
 	public void calculateDayOfWeek_PositiveTestCases() {
+		System.out.println("Running Positive Test Cases");
 		Assertions.assertEquals(algorithm.calculateDayOfWeek(12, 26, 1937), 0);
 		Assertions.assertEquals(algorithm.calculateDayOfWeek( 7, 13, 2305), 4);
 		Assertions.assertEquals(algorithm.calculateDayOfWeek( 4, 12, 1861), 5); // Friday
