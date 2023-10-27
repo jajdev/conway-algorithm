@@ -1,5 +1,5 @@
-# conwayalgorithm
-This is an implementation of the Conway Doomsday Algorithm. This algorithm can calulate the day of the week for any date between the years 1500 and 3000. 
+# conway-algorithm
+This is an implementation of the Conway Doomsday Algorithm. This algorithm can calculate the day of the week for any date between the years 1500 and 3000. 
 
 ## Background
 The algorithm for mental calculation was devised by John Conway in 1973, drawing inspiration from Lewis Carroll's perpetual calendar algorithm. It takes advantage of each year having a certain day of the week upon which certain easy-to-remember dates, called the doomsdays, fall; for example, the last day of February, 4/4, 6/6, 8/8, 10/10, and 12/12 all occur on the same day of the week in any year.
