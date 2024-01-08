@@ -1,2 +1,25 @@
+# Ignoring Gradle build artifacts and project files
+##----------Gradle----------
+.gradle/
+gradle-app.setting
+gradle.properties
+
+!gradle-wrapper.jar
+build/
+/gradle/wrapper/gradle-wrapper.properties
+
+# Ignoring Maven build artifacts and project files
+##----------Maven----------
+*.classpath
+*.project
+*.settings
+/target/
+local.properties
+
+# Ignoring common system and editor-generated files
+##----------Other----------
 /bin/
-/build/
+*~
+.DS_Store
+.vscode
+*.log
